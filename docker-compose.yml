@@ -1,0 +1,10 @@
+services:
+  car-rental:
+    build: .
+    stdin_open: true
+    tty: true
+    volumes:
+      - car_data:/app/data
+
+volumes:
+  car_data:
