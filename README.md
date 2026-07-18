@@ -143,8 +143,4 @@ This project helped me understand:
 
 **Shreyas T S**
 
-GitHub: https://github.com/shreyasreddy45
 
-## License
-
-This project is created for educational and learning purposes.
