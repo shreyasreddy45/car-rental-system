@@ -1,69 +1,90 @@
 # Car Rental Management System
 
-This is a command-line Car Rental Management System developed using Bash scripting on Linux. The project was built to practice Linux shell scripting, file handling, automation, and basic DevOps concepts by implementing a real-world application.
+A modular command-line Car Rental Management System built entirely using **Bash Shell Scripting**. This project demonstrates how shell scripting can be used to build a complete application by applying Linux concepts such as modular programming, file handling, process synchronization, automation, and containerization.
 
 ## Features
 
-* Add, view, update, and delete cars
-* Add, view, update, and delete customers
+* Add, view, update, search, and delete car records
+* Add, view, update, search, and delete customer records
 * Rent and return cars
-* Maintain rental records
-* Calculate rental charges automatically
-* Search cars and customers
+* Automatically update car availability
+* Rental history management
+* Logging of important operations
 * Generate reports
-* Log important activities
-* Create and restore backups
-* Schedule backups using cron
-* Perform remote backups using SSH and rsync
-* Prevent concurrent rental operations using file locking (flock)
-
-## Technologies Used
-
-* Bash
-* Linux
-* Dialog
-* AWK
-* Cron
-* SSH
-* rsync
-* tar
-* flock
-* Git
-* Docker
+* Backup project data
+* Restore data from backups
+* Schedule automatic backups using Cron
+* Remote backup using SSH and `rsync`
+* File locking using `flock` to prevent concurrent access
+* Docker support for running the application inside a container
 
 ## Project Structure
 
-```text
+```
 car-rental-system/
-├── main.sh
+├── modules/
+│   ├── backup.sh
+│   ├── car.sh
+│   ├── cron.sh
+│   ├── customer.sh
+│   ├── delete.sh
+│   ├── logger.sh
+│   ├── remote_backup.sh
+│   ├── rental.sh
+│   ├── report.sh
+│   ├── restore.sh
+│   ├── search.sh
+│   └── update.sh
+├── data/
 ├── config.conf
 ├── Dockerfile
 ├── docker-compose.yml
 ├── README.md
-├── .gitignore
-├── modules/
-├── data/
-├── backups/
-└── locks/
+└── main.sh
 ```
 
-## Installation
+## Technologies Used
+
+* Bash Shell Scripting
+* Linux/Ubuntu
+* Dialog
+* Cron
+* SSH
+* Rsync
+* Docker
+* Docker Compose
+* File Locking (`flock`)
+
+## Requirements
+
+* Ubuntu/Linux
+* Bash
+* Dialog
+* Docker (optional)
+* Docker Compose (optional)
+
+Install Dialog if it is not available:
+
+```bash
+sudo apt update
+sudo apt install dialog
+```
+
+## Running the Project
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/car-rental-system.git
+git clone https://github.com/shreyasreddy45/car-rental-system.git
+```
+
+Move into the project directory:
+
+```bash
 cd car-rental-system
 ```
 
-Install the required packages:
-
-```bash
-sudo apt update
-sudo apt install dialog rsync
-```
-
-Make the script executable:
+Give execution permission:
 
 ```bash
 chmod +x main.sh
@@ -75,51 +96,55 @@ Run the application:
 ./main.sh
 ```
 
-## Docker
+## Running with Docker
 
 Build the Docker image:
 
 ```bash
-docker build -t car-rental .
+docker build -t car-rental-system .
 ```
 
 Run the container:
 
 ```bash
-docker run -it car-rental
+docker run -it car-rental-system
 ```
 
-Or, if Docker Compose is available:
+Or use Docker Compose:
 
 ```bash
-docker compose up
+docker compose up --build
 ```
 
-## What I Learned
+## Learning Outcomes
 
-While building this project, I gained hands-on experience with:
+This project helped me understand:
 
-* Writing modular Bash scripts
-* Linux file handling
-* AWK for processing data
-* Logging and report generation
-* Backup and restore using tar
+* Modular Bash scripting
+* File handling and text processing
+* Functions and reusable modules
+* Configuration management
+* Linux process synchronization using `flock`
 * Cron job scheduling
-* SSH and rsync for remote backups
-* File locking using flock
-* Git and GitHub
-* Docker containerization
+* SSH and remote backups with `rsync`
+* Docker and Docker Compose
+* Organizing medium-sized Bash projects
 
 ## Future Improvements
 
-* Store data in PostgreSQL instead of text files
-* Add user authentication
-* Build a REST API using Go
-* Deploy using Kubernetes
-* Automate deployment with GitHub Actions
-* Host the application on AWS EC2
+* Database integration (MySQL/PostgreSQL)
+* User authentication
+* Better reporting and analytics
+* Email notifications
+* Web-based frontend
+* REST API using Go or Python
 
 ## Author
 
-Shreyas T S
+**Shreyas T S**
 
+GitHub: https://github.com/shreyasreddy45
+
+## License
+
+This project is created for educational and learning purposes.
