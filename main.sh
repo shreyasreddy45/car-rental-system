@@ -1,5 +1,15 @@
 #!/bin/bash
 
+mkdir -p data
+mkdir -p backups
+mkdir -p locks
+
+touch data/cars.txt
+touch data/customers.txt
+touch data/rentals.txt
+touch data/logs.txt
+
+
 source config.conf
 source modules/search.sh
 source modules/car.sh
